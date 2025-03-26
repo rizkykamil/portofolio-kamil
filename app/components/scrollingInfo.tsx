@@ -1,11 +1,15 @@
 export default function ScrollingInfo() {
     return (
-        <div className="scrolling-info">
-            <div className="slider-item">
-                <p>
-                    Available For Hire 🚀 Web Developer 💻 Available For Hire 🚀
-                    Web Developer 💻
-                </p>
+        <div className="work-together-slider">
+            <div className="slider-main d-flex gap-4 align-items-center">
+                <div className="slider-item">
+                    <a href="/contact">Let's 👋 Work Together</a>
+                    <a href="/contact">Let's 👋 Work Together</a>
+                </div>
+                <div className="slider-item">
+                    <a href="/contact">Let's 👋 Work Together</a>
+                    <a href="/contact">Let's 👋 Work Together</a>
+                </div>
             </div>
         </div>
     );

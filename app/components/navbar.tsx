@@ -125,9 +125,9 @@ export default function Navbar() {
                                 </li>
                                 <li className="nav-item">
                                     <Link
-                                        className={`nav-link ${pathname === '/blog' ? 'active' : ''}`}
+                                        className={`nav-link ${pathname === '/blogs' ? 'active' : ''}`}
                                         aria-current="page"
-                                        href="/blog"
+                                        href="/blogs"
                                     >
                                         {' '}
                                         <svg

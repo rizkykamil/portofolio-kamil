@@ -5,7 +5,14 @@ export default function LetsWorkTogether() {
         <div className="col-xl-4">
             <div className="card lets-talk-together-card">
                 <div className="card-body">
-                    <ScrollingInfo />
+                    <div className="scrolling-info">
+                        <div className="slider-item">
+                            <p>
+                                Available For Hire 🚀 Web Developer 💻 Available
+                                For Hire 🚀 Web Developer 💻
+                            </p>
+                        </div>
+                    </div>
                     <h3 className="card-title">
                         Let's👋
                         <span className="d-block">Work Together</span>

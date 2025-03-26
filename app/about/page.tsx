@@ -1,8 +1,5 @@
 import ProfileCard from '../components/profileCard';
-import WorkExperience from '../components/workExperience';
-import RecentProjects from '../components/recentProjects';
-import ServicesIOffered from '../components/servicesIOffered';
-import LetsWorkTogether from '../components/letsWorkTogether';
+import ScrollingInfo from '../components/scrollingInfo';
 import Image from 'next/image';
 export default function About() {
     return (
@@ -23,8 +20,8 @@ export default function About() {
                                             <p>
                                                 A Passionate{' '}
                                                 <b>Laravel Developer</b> 🖥️
-                                                having
-                                                <b>4 years</b>
+                                                having 
+                                                <b> 4 years </b>
                                                 of experience in the field of
                                                 Web Development. I have worked
                                                 on a wide range of projects and
@@ -87,16 +84,16 @@ export default function About() {
                                                         <path
                                                             d="M20 5V35"
                                                             stroke="white"
-                                                            stroke-width="2"
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
+                                                            strokeWidth="2"
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
                                                         />
                                                         <path
                                                             d="M15 30L20 35L25 30"
                                                             stroke="white"
-                                                            stroke-width="2"
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
+                                                            strokeWidth="2"
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
                                                         />
                                                     </svg>
                                                 </span>
@@ -173,26 +170,7 @@ export default function About() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="work-together-slider">
-                                        <div className="slider-main d-flex gap-4 align-items-center">
-                                            <div className="slider-item">
-                                                <a href="contact.html">
-                                                    Let's 👋 Work Together
-                                                </a>
-                                                <a href="contact.html">
-                                                    Let's 👋 Work Together
-                                                </a>
-                                            </div>
-                                            <div className="slider-item">
-                                                <a href="contact.html">
-                                                    Let's 👋 Work Together
-                                                </a>
-                                                <a href="contact.html">
-                                                    Let's 👋 Work Together
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ScrollingInfo />
                                 </div>
                             </div>
                         </div>
