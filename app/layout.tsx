@@ -4,6 +4,8 @@ import { Bricolage_Grotesque } from 'next/font/google';
 import Scripts from './script';
 import Navbar from './components/navbar';
 import Background from './components/background';
+import '/public/assets/css/bootstrap.min.css';
+
 export const metadata: Metadata = {
     title: 'Milfolio - Personal Portfolio Kamil',
     description: 'MilFolio - Personal Portfolio Kamil',
