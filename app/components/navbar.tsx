@@ -260,7 +260,7 @@ export default function Navbar() {
                                     href="/contact"
                                     className="lets-talk-btn"
                                 >
-                                    Let's Talk
+                                    Let&apos;s Talk
                                     <svg
                                         className="icon"
                                         width="20"

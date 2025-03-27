@@ -24,6 +24,7 @@ export default function FormContact() {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null); // State untuk menyimpan error
 
+    console.log(errorMessage);
     const handleChange = (
         e: React.ChangeEvent<
             HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement

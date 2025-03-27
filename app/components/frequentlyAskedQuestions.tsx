@@ -86,9 +86,10 @@ export default function FrequentlyAskedQuestions() {
                                 <p>
                                     Anda dapat menghubungi Rizky Kamil melalui
                                     form kontak di halaman ini, atau dengan
-                                    menekan tombol "Book A Call" untuk membuat
-                                    janji konsultasi, serta bisa mengirim email
-                                    melalui tombol "Copy Email".
+                                    menekan tombol &quot;Book A Call&quot; untuk
+                                    membuat janji konsultasi, serta bisa
+                                    mengirim email melalui tombol &quot;Copy
+                                    Email&quot;.
                                 </p>
                             </div>
                         </div>
@@ -218,9 +219,9 @@ export default function FrequentlyAskedQuestions() {
                             <div className="accordion-body">
                                 <p>
                                     Anda dapat melihat portofolio proyek Rizky
-                                    Kamil dengan mengunjungi halaman "Works" di
-                                    situs ini. Di sana terdapat daftar lengkap
-                                    proyek-proyek yang telah dikerjakan.
+                                    Kamil dengan mengunjungi halaman &quot;Works&quot;
+                                    di situs ini. Di sana terdapat daftar
+                                    lengkap proyek-proyek yang telah dikerjakan.
                                 </p>
                             </div>
                         </div>

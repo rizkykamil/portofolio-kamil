@@ -106,6 +106,7 @@ export async function POST(req: Request) {
             throw new Error(responseData.message || 'Gagal mengirim pesan');
         }
     } catch (error) {
+        console.error('Error:', error);
         return NextResponse.json(
             {
                 status: 'error',

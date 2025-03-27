@@ -1,5 +1,3 @@
-import ScrollingInfo from "./scrollingInfo";
-
 export default function LetsWorkTogether() {
     return (
         <div className="col-xl-4">
@@ -14,12 +12,12 @@ export default function LetsWorkTogether() {
                         </div>
                     </div>
                     <h3 className="card-title">
-                        Let's👋
+                        Let&apos;s👋
                         <span className="d-block">Work Together</span>
                     </h3>
                     <a className="link-btn" href="">
                         {' '}
-                        Let's Talk
+                        Let&apos;s Talk
                         <svg
                             className="icon"
                             width="20"
