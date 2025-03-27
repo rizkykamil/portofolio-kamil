@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Bricolage_Grotesque } from 'next/font/google';  
 import Scripts from './script';
 import Navbar from './components/navbar';
 import Background from './components/background';
@@ -11,11 +10,6 @@ export const metadata: Metadata = {
     description: 'MilFolio - Personal Portfolio Kamil',
 };
 
-const bricolageGrotesque = Bricolage_Grotesque({
-    subsets: ['latin'],
-    weight: ['400', '700'], // Pilih berat font yang diinginkan
-    display: 'swap',
-});  
 
 export default function RootLayout({
     children,

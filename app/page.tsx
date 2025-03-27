@@ -3,7 +3,6 @@ import WorkExperience from './components/workExperience';
 import RecentProjects from './components/recentProjects';
 import ServicesIOffered from './components/servicesIOffered';
 import LetsWorkTogether from './components/letsWorkTogether';
-import Background from './components/background';
 export default function Home() {
     return (
         <>

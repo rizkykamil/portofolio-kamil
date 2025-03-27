@@ -17,11 +17,11 @@ export default function Works() {
                                             <span>Projects</span>
                                         </h1>
                                         <p>
-                                            I'm here to help if you're searching
-                                            for a Web Development to bring your
-                                            idea to life or a Developer partner
-                                            to help take your business to the
-                                            next level.
+                                            I&apos;m here to help if you&apos;re
+                                            searching for a Web Development to
+                                            bring your idea to life or a
+                                            Developer partner to help take your
+                                            business to the next level.
                                         </p>
                                     </div>
                                 </div>
