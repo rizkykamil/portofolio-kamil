@@ -18,7 +18,7 @@ export default function LetsWorkTogether() {
                         <span className="d-block">Work Together</span>
                     </h3>
                     <Link className="link-btn" href="/contact">
-                        fasdfsaf
+                        Let&apos;s Talk
                         <svg
                             className="icon"
                             width="20"
