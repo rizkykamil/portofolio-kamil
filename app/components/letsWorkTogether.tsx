@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function LetsWorkTogether() {
     return (
         <div className="col-xl-4">
@@ -15,8 +17,7 @@ export default function LetsWorkTogether() {
                         Let&apos;s👋
                         <span className="d-block">Work Together</span>
                     </h3>
-                    <a className="link-btn" href="">
-                        {' '}
+                    <Link className="link-btn" href="/contact">
                         Let&apos;s Talk
                         <svg
                             className="icon"
@@ -39,7 +40,7 @@ export default function LetsWorkTogether() {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
