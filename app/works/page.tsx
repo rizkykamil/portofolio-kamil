@@ -1,5 +1,5 @@
-import ProfileCard from '../components/profileCard';
-import ScrollingInfo from '../components/scrollingInfo';
+import ProfileCard from '../components/profileCard'
+import ScrollingInfo from '../components/scrollingInfo'
 
 export default function Works() {
     return (
@@ -54,5 +54,5 @@ export default function Works() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

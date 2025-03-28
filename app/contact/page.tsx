@@ -1,8 +1,8 @@
-import ProfileCard from '../components/profileCard';
-import '../../public/assets/css/bootstrap.min.css';  
-import FormContact from '../components/formContact';
-import Maps from '../components/maps';
-import FrequentlyAskedQuestions from '../components/frequentlyAskedQuestions';
+import ProfileCard from '../components/profileCard'
+import '../../public/assets/css/bootstrap.min.css'
+import FormContact from '../components/formContact'
+import Maps from '../components/maps'
+import FrequentlyAskedQuestions from '../components/frequentlyAskedQuestions'
 
 export default function Contact() {
     return (
@@ -16,14 +16,15 @@ export default function Contact() {
                                 <div className="top-info">
                                     <div className="text">
                                         <h1 className="main-title">
-                                            Let&apos;s 👋 <span>Work</span> Together
+                                            Let&apos;s 👋 <span>Work</span>{' '}
+                                            Together
                                         </h1>
                                         <p>
                                             I&apos;m here to help if you&apos;re
-                                            searching for a Web Developer to bring
-                                            your idea to life or a design partner
-                                            to help take your business to the next
-                                            level.
+                                            searching for a Web Developer to
+                                            bring your idea to life or a design
+                                            partner to help take your business
+                                            to the next level.
                                         </p>
                                     </div>
                                 </div>
@@ -40,5 +41,5 @@ export default function Contact() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

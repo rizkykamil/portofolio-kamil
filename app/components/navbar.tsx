@@ -1,9 +1,9 @@
-'use client';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+'use client'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
-    const pathname = usePathname();
+    const pathname = usePathname()
 
     return (
         <header className="header-area">
@@ -256,10 +256,7 @@ export default function Navbar() {
                                         </small>
                                     </span>
                                 </button>
-                                <Link
-                                    href="/contact"
-                                    className="lets-talk-btn"
-                                >
+                                <Link href="/contact" className="lets-talk-btn">
                                     Let&apos;s Talk
                                     <svg
                                         className="icon"
@@ -297,5 +294,5 @@ export default function Navbar() {
                 </div>
             </nav>
         </header>
-    );
+    )
 }

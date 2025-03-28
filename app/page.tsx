@@ -1,8 +1,8 @@
-import ProfileCard from './components/profileCard';
-import WorkExperience from './components/workExperience';
-import RecentProjects from './components/recentProjects';
-import ServicesIOffered from './components/servicesIOffered';
-import LetsWorkTogether from './components/letsWorkTogether';
+import ProfileCard from './components/profileCard'
+import WorkExperience from './components/workExperience'
+import RecentProjects from './components/recentProjects'
+import ServicesIOffered from './components/servicesIOffered'
+import LetsWorkTogether from './components/letsWorkTogether'
 export default function Home() {
     return (
         <>
@@ -22,5 +22,5 @@ export default function Home() {
                 </div>
             </section>
         </>
-    );
+    )
 }

@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import laravelImage from '../../public/assets/img/icons/laravel.svg';
-import notionImage from '../../public/assets/img/icons/notion.svg';
-import figmaImage from '../../public/assets/img/icons/figma.svg';
-import githubImage from '../../public/assets/img/icons/github.svg';
+import Image from 'next/image'
+import laravelImage from '../../public/assets/img/icons/laravel.svg'
+import notionImage from '../../public/assets/img/icons/notion.svg'
+import figmaImage from '../../public/assets/img/icons/figma.svg'
+import githubImage from '../../public/assets/img/icons/github.svg'
 
 export default function MyExpertArea() {
     return (
@@ -107,5 +107,5 @@ export default function MyExpertArea() {
                 </div>
             </div>
         </div>
-    );
+    )
 }

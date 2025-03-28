@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import MyExpertArea from './myExpertArea';
+import Image from 'next/image'
+import MyExpertArea from './myExpertArea'
 
 export default function WorkExperience() {
     return (
@@ -159,5 +159,5 @@ export default function WorkExperience() {
                 <MyExpertArea />
             </div>
         </div>
-    );
+    )
 }

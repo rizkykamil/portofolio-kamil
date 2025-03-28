@@ -1,6 +1,6 @@
-import ProfileCard from '../components/profileCard';
-import ScrollingInfo from '../components/scrollingInfo';
-import Image from 'next/image';
+import ProfileCard from '../components/profileCard'
+import ScrollingInfo from '../components/scrollingInfo'
+import Image from 'next/image'
 export default function About() {
     return (
         <>
@@ -20,7 +20,7 @@ export default function About() {
                                             <p>
                                                 A Passionate{' '}
                                                 <b>Laravel Developer</b> 🖥️
-                                                having 
+                                                having
                                                 <b> 4 years </b>
                                                 of experience in the field of
                                                 Web Development. I have worked
@@ -178,5 +178,5 @@ export default function About() {
                 </div>
             </section>
         </>
-    );
+    )
 }

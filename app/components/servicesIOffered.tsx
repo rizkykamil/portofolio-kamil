@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import prdDesignImage from '../../public/assets/img/icons/prd-design.svg';
-import brandingImage from '../../public/assets/img/icons/branding.svg';
-import webDevelopmentImage from '../../public/assets/img/icons/web-development.svg';
+import Image from 'next/image'
+import prdDesignImage from '../../public/assets/img/icons/prd-design.svg'
+import brandingImage from '../../public/assets/img/icons/branding.svg'
+import webDevelopmentImage from '../../public/assets/img/icons/web-development.svg'
 
 export default function ServicesIOffered() {
     return (
@@ -64,5 +64,5 @@ export default function ServicesIOffered() {
                 </div>
             </div>
         </div>
-    );
+    )
 }

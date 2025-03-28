@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import flozorsGymImage from '../../public/assets/img/projects/Flozorsgym.png';
-import enforceaImage from '../../public/assets/img/projects/enforcea.png';
+import Image from 'next/image'
+import flozorsGymImage from '../../public/assets/img/projects/Flozorsgym.png'
+import enforceaImage from '../../public/assets/img/projects/enforcea.png'
 
 export default function RecentProjects() {
     return (
@@ -118,5 +118,5 @@ export default function RecentProjects() {
                 </div>
             </div>
         </div>
-    );
+    )
 }

@@ -8,5 +8,5 @@ export default function Maps() {
                 referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
         </div>
-    );
+    )
 }

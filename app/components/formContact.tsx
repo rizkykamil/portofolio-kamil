@@ -1,14 +1,14 @@
-'use client';
-import React, { useState } from 'react';
-import Swal from 'sweetalert2'; // Import SweetAlert2
+'use client'
+import React, { useState } from 'react'
+import Swal from 'sweetalert2' // Import SweetAlert2
 
 interface FormData {
-    name: string;
-    email: string;
-    subject: string;
-    phone: string;
-    InquiryType: string;
-    message: string;
+    name: string
+    email: string
+    subject: string
+    phone: string
+    InquiryType: string
+    message: string
 }
 
 export default function FormContact() {
@@ -19,30 +19,30 @@ export default function FormContact() {
         phone: '',
         InquiryType: '',
         message: '',
-    });
+    })
 
-    const [isLoading, setIsLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState<string | null>(null); // State untuk menyimpan error
+    const [isLoading, setIsLoading] = useState(false)
+    const [errorMessage, setErrorMessage] = useState<string | null>(null) // State untuk menyimpan error
 
-    console.log(errorMessage);
+    console.log(errorMessage)
     const handleChange = (
         e: React.ChangeEvent<
             HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
         >
     ) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
-        }));
-    };
+        }))
+    }
 
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault(); // Mencegah pengiriman form default (refresh halaman)
+        e.preventDefault() // Mencegah pengiriman form default (refresh halaman)
 
-        if (isLoading) return; // Jangan kirim form jika sedang loading
+        if (isLoading) return // Jangan kirim form jika sedang loading
 
-        setIsLoading(true); // Set loading true saat pengiriman data
+        setIsLoading(true) // Set loading true saat pengiriman data
 
         // Kirim data ke server menggunakan fetch (atau bisa menggunakan axios)
         try {
@@ -52,7 +52,7 @@ export default function FormContact() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
-            });
+            })
 
             if (response.ok) {
                 Swal.fire({
@@ -60,7 +60,7 @@ export default function FormContact() {
                     text: 'Your message has been sent successfully!',
                     icon: 'success',
                     confirmButtonText: 'OK',
-                });
+                })
                 setFormData({
                     name: '',
                     email: '',
@@ -68,12 +68,12 @@ export default function FormContact() {
                     phone: '',
                     InquiryType: '',
                     message: '',
-                }); // Reset form setelah berhasil
-                setErrorMessage(null); // Reset error message
+                }) // Reset form setelah berhasil
+                setErrorMessage(null) // Reset error message
             } else {
-                const errorData = await response.json();
-                setErrorMessage(errorData.message); // Menampilkan pesan error dari server
-                console.log(errorData);
+                const errorData = await response.json()
+                setErrorMessage(errorData.message) // Menampilkan pesan error dari server
+                console.log(errorData)
                 Swal.fire({
                     title: 'Failed',
                     text:
@@ -81,20 +81,20 @@ export default function FormContact() {
                         'Failed to send message. Please try again.',
                     icon: 'error',
                     confirmButtonText: 'OK',
-                });
+                })
             }
         } catch (error) {
-            console.error('Error submitting form:', error);
+            console.error('Error submitting form:', error)
             Swal.fire({
                 title: 'Error',
                 text: 'An error occurred. Please try again.',
                 icon: 'error',
                 confirmButtonText: 'OK',
-            });
+            })
         } finally {
-            setIsLoading(false); // Set loading false setelah proses selesai
+            setIsLoading(false) // Set loading false setelah proses selesai
         }
-    };
+    }
 
     return (
         <div className="comments-box">
@@ -163,12 +163,12 @@ export default function FormContact() {
                                 value={formData.phone} // Tautkan dengan state
                                 onChange={(e) => {
                                     // Hanya izinkan angka, tanda +, dan tanda spasi
-                                    const inputValue = e.target.value;
-                                    const regex = /^[0-9+\s]*$/; // Mengizinkan angka, +, dan spasi
+                                    const inputValue = e.target.value
+                                    const regex = /^[0-9+\s]*$/ // Mengizinkan angka, +, dan spasi
 
                                     // Jika input valid, set state, jika tidak, tidak ada perubahan
                                     if (regex.test(inputValue)) {
-                                        handleChange(e);
+                                        handleChange(e)
                                     }
                                 }}
                             />
@@ -213,8 +213,8 @@ export default function FormContact() {
                             type="submit"
                             className="submit-btn"
                             onClick={(e) => {
-                                e.preventDefault();
-                                handleSubmit(e); // Pastikan tidak ada setIsLoading di sini
+                                e.preventDefault()
+                                handleSubmit(e) // Pastikan tidak ada setIsLoading di sini
                             }}
                             disabled={isLoading} // Nonaktifkan tombol ketika loading
                         >
@@ -254,5 +254,5 @@ export default function FormContact() {
                 </div>
             </form>
         </div>
-    );
+    )
 }

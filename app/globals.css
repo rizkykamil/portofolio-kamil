@@ -5,11 +5,10 @@
 @import '../public/assets/css/style.css';  
 @import '../public/assets/css/responsive.css'; */
 
-@import '../public/assets/css/bootstrap.min.css';  
-@import '../public/assets/fontawsome/css/all.min.css';  
-@import '../public/assets/fontawsome/css/fontawesome.min.css';  
-@import '../public/assets/css/slick.css';  
-@import '../public/assets/css/magnific-popup.css';  
-@import '../public/assets/css/style.css';  
-@import '../public/assets/css/responsive.css';  
-
+@import '../public/assets/css/bootstrap.min.css';
+@import '../public/assets/fontawsome/css/all.min.css';
+@import '../public/assets/fontawsome/css/fontawesome.min.css';
+@import '../public/assets/css/slick.css';
+@import '../public/assets/css/magnific-popup.css';
+@import '../public/assets/css/style.css';
+@import '../public/assets/css/responsive.css';

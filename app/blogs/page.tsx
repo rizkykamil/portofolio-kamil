@@ -1,5 +1,5 @@
-import ProfileCard from '../components/profileCard';
-import ScrollingInfo from '../components/scrollingInfo';
+import ProfileCard from '../components/profileCard'
+import ScrollingInfo from '../components/scrollingInfo'
 
 export default function Blogs() {
     return (
@@ -17,10 +17,10 @@ export default function Blogs() {
                                         </h1>
                                         <p>
                                             I&apos;m here to help if you&apos;re
-                                            searching for a Web Developer to bring
-                                            your idea to life or a Programmer
-                                            partner to help take your business to
-                                            the next level.
+                                            searching for a Web Developer to
+                                            bring your idea to life or a
+                                            Programmer partner to help take your
+                                            business to the next level.
                                         </p>
                                     </div>
                                 </div>
@@ -64,5 +64,5 @@ export default function Blogs() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

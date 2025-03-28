@@ -1,4 +1,4 @@
-import Script from 'next/script';
+import Script from 'next/script'
 
 export default function Scripts() {
     return (
@@ -19,8 +19,6 @@ export default function Scripts() {
             <Script src="/assets/js/slick.min.js" />
             <Script src="/assets/js/script.js" /> */}
 
-
-            
             <Script src="/assets/js/vendor/jquery-3.6.0.min.js" />
             <Script src="/assets/js/bootstrap.bundle.min.js" />
             <Script src="/assets/js/jquery.magnific-popup.min.js" />
@@ -29,5 +27,5 @@ export default function Scripts() {
             <Script src="/assets/js/slick.min.js" />
             <Script src="/assets/js/script.js" />
         </>
-    );
+    )
 }

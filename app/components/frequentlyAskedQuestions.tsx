@@ -219,9 +219,10 @@ export default function FrequentlyAskedQuestions() {
                             <div className="accordion-body">
                                 <p>
                                     Anda dapat melihat portofolio proyek Rizky
-                                    Kamil dengan mengunjungi halaman &quot;Works&quot;
-                                    di situs ini. Di sana terdapat daftar
-                                    lengkap proyek-proyek yang telah dikerjakan.
+                                    Kamil dengan mengunjungi halaman
+                                    &quot;Works&quot; di situs ini. Di sana
+                                    terdapat daftar lengkap proyek-proyek yang
+                                    telah dikerjakan.
                                 </p>
                             </div>
                         </div>
@@ -229,5 +230,5 @@ export default function FrequentlyAskedQuestions() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
