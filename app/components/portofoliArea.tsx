@@ -20,6 +20,8 @@ async function fetchWorks() {
     }
 }
 
+
+
 interface Work {
     id: number
     judul: string
