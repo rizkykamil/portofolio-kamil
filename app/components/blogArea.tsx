@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-
-async function fetchWorks() {
+async function fetchBlogs() {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/works`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
             cache: 'no-store',
             next: { revalidate: 60 }
         });
@@ -12,43 +11,41 @@ async function fetchWorks() {
             return null;
         }
 
-        const works = await response.json();
-        return works;
+        const blogs = await response.json();
+        return blogs;
     } catch (error) {
-        console.error('Failed to fetch works:', error);
+        console.error('Failed to fetch blogs:', error);
         return null;
     }
 }
 
-interface Work {
-    id: number
-    judul: string
-    gambar: string
-    type: string
-    client: string
-    link: string
+interface Blog {
+    id: number;
+    judul: string;
+    gambar: string;
+    type: string;
+    slug: string;
+    created_at: string;
 }
 
+export default async function BlogArea() {
+    const blogs = await fetchBlogs();
 
-
-
-export default async function PortofoliArea() {
-    const works = await fetchWorks();
     return (
         <div className="portfolio-area">
             <div className="row g-4 parent-container">
-                {works.length > 0 ? (
-                    works.map((work: Work) => (
-                        <div key={work.id} className="col-lg-12">
+                {blogs && blogs.length > 0 ? (
+                    blogs.map((blog: Blog) => (
+                        <div key={blog.id} className="col-lg-12">
                             <div className="portfolio-item">
                                 <div className="image">
                                     <img
-                                        src={work.gambar}
-                                        alt={work.judul}
+                                        src={blog.gambar}
+                                        alt={blog.judul}
                                         className="img-fluid w-100"
                                         loading="lazy"
                                     />
-                                    <Link href={work.link || '#'} className="full-image-preview parent-container">
+                                    <Link href={`/blogs/${blog.slug}`} className="full-image-preview parent-container">
                                         <svg
                                             className="icon"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -65,12 +62,12 @@ export default async function PortofoliArea() {
                                 </div>
                                 <div className="text">
                                     <div className="info">
-                                        <h3 className="title">{work.judul}</h3>
-                                        <p className="subtitle">{work.type}</p>
+                                        <h3 className="title">{blog.judul}</h3>
+                                        <p className="subtitle">{blog.type}</p>
                                     </div>
                                     <div className="visite-btn">
-                                        <Link href={work.link}>
-                                            Visit Site
+                                        <Link href={`/blogs/${blog.slug}`}>
+                                            Read More
                                             <svg
                                                 className="arrow-up"
                                                 width="14"
@@ -111,7 +108,5 @@ export default async function PortofoliArea() {
                 )}
             </div>
         </div>
-    )
+    );
 }
-
-
