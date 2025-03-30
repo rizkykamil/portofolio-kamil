@@ -13,7 +13,8 @@ interface Work {
 async function fetchWorks() {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/works`, {
-            cache: 'no-store', // Do not cache for fresh data
+            // cache: 'no-store', // Do not cache for fresh data
+            next: { revalidate: 60 },
         });
 
         if (!response.ok) {

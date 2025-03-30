@@ -2,6 +2,7 @@ import BlogArea from '../components/blogArea'
 import ProfileCard from '../components/profileCard'
 import ScrollingInfo from '../components/scrollingInfo'
 
+// app/components/blogArea.tsx
 interface Blog {
     id: number
     judul: string
@@ -18,7 +19,8 @@ interface Blog {
 async function fetchBlogs() {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
-            cache: 'no-store', // No cache for fresh data
+            // cache: 'no-store', // No cache for fresh data
+            next: { revalidate: 60 },
         });
 
         if (!response.ok) {

@@ -7,7 +7,8 @@ import PortofoliArea from '../components/portofoliArea'
 async function fetchWorks() {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/works`, {
-            cache: 'no-store', // No cache for fresh data
+            // cache: 'no-store', // No cache for fresh data
+            next: { revalidate: 60 },
         });
 
         if (!response.ok) {

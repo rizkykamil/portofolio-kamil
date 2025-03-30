@@ -6,7 +6,7 @@ import Image from 'next/image'
 async function fetchWorks() {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/works`, {
-            cache: 'no-store',
+            // cache: 'no-store',
             next: { revalidate: 60 },
         })
 
@@ -25,7 +25,7 @@ async function fetchWorks() {
 async function fetchBlogs() {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
-            cache: 'no-store',
+            // cache: 'no-store',
             next: { revalidate: 60 },
         })
 
