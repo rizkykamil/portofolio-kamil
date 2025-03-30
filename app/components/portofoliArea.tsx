@@ -1,41 +1,44 @@
 import Link from "next/link";
 
+interface Work {
+    id: number;
+    judul: string;
+    gambar: string;
+    type: string;
+    client: string;
+    link: string;
+}
 
+// Fetch the works from the API
 async function fetchWorks() {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/works`, {
-            cache: 'no-store',
-            next: { revalidate: 60 }
+            cache: 'no-store', // Do not cache for fresh data
         });
 
         if (!response.ok) {
-            return null;
+            return [];
         }
 
         const works = await response.json();
         return works;
     } catch (error) {
         console.error('Failed to fetch works:', error);
-        return null;
+        return [];
     }
 }
 
-
-
-interface Work {
-    id: number
-    judul: string
-    gambar: string
-    type: string
-    client: string
-    link: string
+// Fetch the works in `getServerSideProps` to make it SSR
+export async function getServerSideProps() {
+    const works = await fetchWorks();
+    return {
+        props: {
+            works, // Pass the works to the page component as props
+        },
+    };
 }
 
-
-
-
-export default async function PortofoliArea() {
-    const works = await fetchWorks();
+export default function PortfolioArea({ works }: { works: Work[] }) {
     return (
         <div className="portfolio-area">
             <div className="row g-4 parent-container">
@@ -101,7 +104,7 @@ export default async function PortofoliArea() {
                 ) : (
                     <div className="col-lg-12">
                         <div className="portfolio-item">
-                            <div className="image" style={{ padding: '0px' }} >
+                            <div className="image" style={{ padding: '0px' }}>
                                 <div className="text d-flex justify-content-center">
                                     <div className="info">
                                         <p className="subtitle"> Sabar ya lagi dibuat 🙏🏻😭 </p>
@@ -113,7 +116,5 @@ export default async function PortofoliArea() {
                 )}
             </div>
         </div>
-    )
+    );
 }
-
-
