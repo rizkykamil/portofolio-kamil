@@ -1,10 +1,19 @@
 import Link from "next/link";
 
+interface Blog {
+    id: number;
+    judul: string;
+    gambar: string;
+    type: string;
+    slug: string;
+    created_at: string;
+}
+
+// Fetch Blogs Function
 async function fetchBlogs() {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
-            cache: 'no-store',
-            next: { revalidate: 60 }
+            cache: 'no-store', // No cache for fresh data
         });
 
         if (!response.ok) {
@@ -19,18 +28,7 @@ async function fetchBlogs() {
     }
 }
 
-interface Blog {
-    id: number;
-    judul: string;
-    gambar: string;
-    type: string;
-    slug: string;
-    created_at: string;
-}
-
-export default async function BlogArea() {
-    const blogs = await fetchBlogs();
-
+export default function BlogArea({ blogs }: { blogs: Blog[] }) {
     return (
         <div className="portfolio-area">
             <div className="row g-4 parent-container">
@@ -96,7 +94,7 @@ export default async function BlogArea() {
                 ) : (
                     <div className="col-lg-12">
                         <div className="portfolio-item">
-                            <div className="image" style={{ padding: '0px' }} >
+                            <div className="image" style={{ padding: '0px' }}>
                                 <div className="text d-flex justify-content-center">
                                     <div className="info">
                                         <p className="subtitle"> Sabar ya lagi dibuat 🙏🏻😭 </p>
@@ -109,4 +107,15 @@ export default async function BlogArea() {
             </div>
         </div>
     );
+}
+
+// `getServerSideProps` to fetch the blogs on each request
+export async function getServerSideProps() {
+    const blogs = await fetchBlogs();
+
+    return {
+        props: {
+            blogs: blogs || [], // If no blogs, return an empty array
+        },
+    };
 }
