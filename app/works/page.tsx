@@ -1,11 +1,30 @@
 import ProfileCard from '../components/profileCard'
 import ScrollingInfo from '../components/scrollingInfo'
-import PortofoliArea from '../components/portofoliArea';
+import PortofoliArea from '../components/portofoliArea'
 
 
+// Fetch Works function
+async function fetchWorks() {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/works`, {
+            cache: 'no-store', // No cache for fresh data
+        });
 
+        if (!response.ok) {
+            return null;
+        }
+
+        const works = await response.json();
+        return works;
+    } catch (error) {
+        console.error('Failed to fetch works:', error);
+        return null;
+    }
+}
 
 export default async function Works() {
+    const works = await fetchWorks(); // Fetch works on the server-side
+
     return (
         <section className="content-box-area mt-4">
             <div className="container">
@@ -29,7 +48,8 @@ export default async function Works() {
                                         </p>
                                     </div>
                                 </div>
-                                <PortofoliArea />
+                                {/* Pass works to PortofoliArea */}
+                                <PortofoliArea works={works || []} />
 
                                 <ScrollingInfo />
                             </div>
