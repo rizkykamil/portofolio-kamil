@@ -3,17 +3,17 @@ import BlogArea from '../components/blogArea';
 import ProfileCard from '../components/profileCard';
 import ScrollingInfo from '../components/scrollingInfo';
 
-interface Blog {
-    id: number;
-    judul: string;
-    type: string;
-    time: number;
-    tanggal: string;
-    gambar: string;
-    slug: string;
-    isi: string;
-    created_at: string;
-}
+// interface Blog {
+//     id: number;
+//     judul: string;
+//     type: string;
+//     time: number;
+//     tanggal: string;
+//     gambar: string;
+//     slug: string;
+//     isi: string;
+//     created_at: string;
+// }
 
 // Fetch Blogs function should be here as well
 async function fetchBlogs() {
@@ -32,7 +32,9 @@ async function fetchBlogs() {
     }
 }
 
-export default function Blogs({ blogs }: { blogs: Blog[] }) {
+export default async function Blogs() {
+    const blogs = await fetchBlogs(); // Fetch blogs on the server-side
+
     return (
         <section className="content-box-area mt-4">
             <div className="container">
@@ -75,15 +77,4 @@ export default function Blogs({ blogs }: { blogs: Blog[] }) {
             </div>
         </section>
     );
-}
-
-// Fetch blogs on the server side and pass them as props to the Blogs page
-export async function getServerSideProps() {
-    const blogs = await fetchBlogs();
-
-    return {
-        props: {
-            blogs: blogs || [], // If no blogs, return an empty array
-        },
-    };
 }
