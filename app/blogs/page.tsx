@@ -1,25 +1,24 @@
-import BlogArea from '../components/blogArea'
-import ProfileCard from '../components/profileCard'
-import ScrollingInfo from '../components/scrollingInfo'
+// app/blogs/page.tsx
+import BlogArea from '../components/blogArea';
+import ProfileCard from '../components/profileCard';
+import ScrollingInfo from '../components/scrollingInfo';
 
-// interface Blog {
-//     id: number
-//     judul: string
-//     type: string
-//     time: number
-//     tanggal: string
-//     gambar: string
-//     slug: string
-//     isi: string
-//     created_at: string
-// }
+interface Blog {
+    id: number;
+    judul: string;
+    type: string;
+    time: number;
+    tanggal: string;
+    gambar: string;
+    slug: string;
+    isi: string;
+    created_at: string;
+}
 
 // Fetch Blogs function should be here as well
 async function fetchBlogs() {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
-            cache: 'no-store', // No cache for fresh data
-        });
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`);
 
         if (!response.ok) {
             return null;
@@ -33,9 +32,7 @@ async function fetchBlogs() {
     }
 }
 
-export default async function Blogs() {
-    const blogs = await fetchBlogs(); // Fetch blogs on the server-side
-
+export default function Blogs({ blogs }: { blogs: Blog[] }) {
     return (
         <section className="content-box-area mt-4">
             <div className="container">
@@ -77,5 +74,16 @@ export default async function Blogs() {
                 </div>
             </div>
         </section>
-    )
+    );
+}
+
+// Fetch blogs on the server side and pass them as props to the Blogs page
+export async function getServerSideProps() {
+    const blogs = await fetchBlogs();
+
+    return {
+        props: {
+            blogs: blogs || [], // If no blogs, return an empty array
+        },
+    };
 }
