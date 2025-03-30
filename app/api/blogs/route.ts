@@ -18,10 +18,22 @@ export async function GET(req: Request) {
         try {
             const results = await new Promise<Blog[]>((resolve, reject) => {
                 DB.query('SELECT * FROM blogs', (error, results) => {
-                    if (error) reject(error)
-                    else resolve(results as Blog[])
+                    if (error) {
+                        console.error('Database Query Error:', error);
+                        reject(error)
+                    } else {
+                        resolve(results as Blog[])
+                    }
                 })
-            })
+            });
+
+            // Check if the query returned any blogs
+            if (results.length === 0) {
+                return NextResponse.json(
+                    { message: 'No blogs found' },
+                    { status: 404 }
+                )
+            }
 
             return NextResponse.json(
                 results.map((blog: Blog) => ({
@@ -36,13 +48,14 @@ export async function GET(req: Request) {
                     slug: blog.slug,
                 })),
                 { status: 200 }
-            )
+            );
         } catch (error) {
+            console.error('Error Fetching Blogs:', error);
+
             return NextResponse.json(
                 {
                     message: 'Database error',
-                    error:
-                        error instanceof Error ? error.message : String(error),
+                    error: error instanceof Error ? error.message : String(error),
                 },
                 { status: 500 }
             )
