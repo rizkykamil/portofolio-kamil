@@ -38,9 +38,6 @@ export default function Works() {
 
         fetchWorks()
     }, [])
-    
-    // tthe component renders a section with a profile card and a portfolio area
-    // that displays the works fetched from the API
 
     return (
         <section className="content-box-area mt-4">
