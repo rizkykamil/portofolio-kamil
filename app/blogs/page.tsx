@@ -1,7 +1,48 @@
+// app/blogs/page.tsx
+import BlogArea from '../components/blogArea'
 import ProfileCard from '../components/profileCard'
 import ScrollingInfo from '../components/scrollingInfo'
 
-export default function Blogs() {
+// Definisikan interface Blog
+interface Blog {
+    id: number
+    judul: string
+    type: string
+    time: number
+    tanggal: string
+    gambar: string
+    slug: string
+    isi: string
+    created_at: string
+}
+
+// Fungsi fetch blogs
+async function fetchBlogs(): Promise<Blog[]> {
+    try {
+        const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/blogs`,
+            {
+                // Gunakan revalidate untuk caching yang lebih baik
+                next: {
+                    revalidate: 60, // Regenerasi setiap 60 detik
+                },
+            }
+        )
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch blogs')
+        }
+
+        return await response.json()
+    } catch (error) {
+        console.error('Error fetching blogs:', error)
+        return [] // Kembalikan array kosong jika gagal
+    }
+}
+
+export default async function BlogsPage() {
+    const blogs = await fetchBlogs()
+
     return (
         <section className="content-box-area mt-4">
             <div className="container">
@@ -29,29 +70,7 @@ export default function Blogs() {
                                         <div className="row">
                                             <div className="portfolio-area mt-5">
                                                 <div className="row g-4 parent-container">
-                                                    <div className="col-lg-12">
-                                                        <div className="portfolio-item">
-                                                            <div
-                                                                className="image"
-                                                                style={{
-                                                                    padding:
-                                                                        '0px',
-                                                                }}
-                                                            >
-                                                                <div className="text d-flex justify-content-center">
-                                                                    <div className="info">
-                                                                        <p className="subtitle">
-                                                                            Sabar
-                                                                            ya
-                                                                            lagi
-                                                                            dibuat
-                                                                            🙏🏻😭
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <BlogArea blogs={blogs} />
                                                 </div>
                                             </div>
                                         </div>

@@ -56,7 +56,7 @@ export default function Navbar() {
                                         <span>Home</span>
                                     </Link>
                                 </li>
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <Link
                                         className={`nav-link ${pathname === '/about' ? 'active' : ''}`}
                                         href="/about"
@@ -88,7 +88,7 @@ export default function Navbar() {
                                         </svg>
                                         About
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li className="nav-item">
                                     <Link
                                         className={`nav-link ${pathname === '/works' ? 'active' : ''}`}

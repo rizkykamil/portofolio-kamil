@@ -1,23 +1,30 @@
-const { createServer } = require('http')
-const { parse } = require('url')
-const next = require('next')
+import { createServer } from 'http'
+import { parse } from 'url'
+import next from 'next'
+import dotenv from 'dotenv'
 
+// Memuat file .env
+dotenv.config()
+
+// Mendapatkan variabel lingkungan untuk menentukan apakah sedang dalam mode pengembangan atau produksi
 const dev = process.env.NODE_ENV !== 'production'
-const hostname = 'localhost'
-const port = process.env.port || 8080
-// when using middleware `hostname` and `port` must be provided below
+
+// Mendapatkan nilai port dan hostname dari variabel lingkungan atau nilai default
+const hostname = process.env.HOSTNAME || 'localhost'
+const port = process.env.PORT || 8080
+
 const app = next({
     dev,
     hostname,
     port,
 })
+
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
     createServer(async (req, res) => {
         try {
-            // Be sure to pass `true` as the second argument to `url.parse`.
-            // This tells it to parse the query portion of the URL.
+            // Mem-parsing URL untuk mendapatkan pathname dan query
             const parsedUrl = parse(req.url, true)
             const { pathname, query } = parsedUrl
 
