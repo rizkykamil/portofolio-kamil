@@ -45,7 +45,7 @@ export async function GET(req: Request) {
                     time: blog.time,
                     tanggal: blog.tanggal,
                     gambar:
-                        'https://portofolio.rizkykmil.web.id/uploads/blogs_images/' +
+                        'https://portofolio.rizkykmil.web.id/uploads/blog_images/' +
                         blog.gambar,
                     slug: blog.slug,
                 })),
