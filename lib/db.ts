@@ -16,20 +16,3 @@ const pool = mysql.createPool({
 
 // Export the pool for use in queries
 export default pool
-
-// Example query execution using the pool
-pool.execute('SELECT * FROM blogs', (err, results) => {
-    if (err) {
-        console.error(err)
-        return
-    }
-    console.log(results)
-})
-
-pool.execute('SELECT * FROM works', (err, results) => {
-    if (err) {
-        console.error(err)
-        return
-    }
-    console.log(results)
-})
