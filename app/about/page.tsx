@@ -1,7 +1,66 @@
+'use client'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import Slider from "react-slick"
+import Image from 'next/image'
+import '../../public/assets/css/slick.css'
+
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
+
 import ProfileCard from '../components/profileCard'
 import ScrollingInfo from '../components/scrollingInfo'
-import Image from 'next/image'
+
+interface Work {
+    id: number
+    judul: string
+    gambar: string
+    type: string
+    client: string
+    link: string
+}
 export default function About() {
+    const [works, setWorks] = useState<Work[]>([])
+    const [loading, setLoading] = useState(true)
+
+    // Fetch works data when the component is mounted
+    useEffect(() => {
+        async function fetchWorks() {
+            try {
+                const response = await fetch('/api/works')
+                const data = await response.json()
+
+                // If works are found, update the state
+                if (response.ok && data.length > 0) {
+                    setWorks(data)
+                }
+            } catch (error) {
+                console.error('Error fetching works:', error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchWorks()
+    }, [])
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        arrows: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    }
     return (
         <>
             <section className="content-box-area mt-4">
@@ -101,30 +160,102 @@ export default function About() {
                                         </div>
                                     </div>
                                     <div className="client-feedback">
-                                        <h2 className="main-common-title">
-                                            Portofolio Project
-                                        </h2>
-                                        <div className="row client-feedback-slider">
+                                        <h2 className="main-common-title">Portofolio Project</h2>
+                                        {loading ? (
+                                            <div className="portfolio-area mt-5">
+                                                <div className="row g-4 parent-container">
+                                                    <div className="col-lg-12">
+                                                        <div className="portfolio-item me-3 loading">
+                                                            <div className="image" style={{ minHeight: 200 }}>
+                                                                <span className="text-muted">Loading projects...</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ) : works.length > 0 ? (
+                                            <Slider {...settings}>
+                                                {works.map((work) => (
+                                                    <div key={work.id}>
+                                                        <div className="col-lg-12">
+                                                            <div className="portfolio-item me-3">
+                                                                <div className="image">
+                                                                    <img
+                                                                        src={work.gambar}
+                                                                        alt={work.judul}
+                                                                        className="img-fluid w-100"
+                                                                        loading="lazy"
+                                                                    />
+                                                                    <a
+                                                                        href={work.link}
+                                                                        className="full-image-preview parent-container"
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                    >
+                                                                        <svg
+                                                                            className="icon"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 20 20"
+                                                                            fill="none"
+                                                                            stroke="currentColor"
+                                                                            strokeLinecap="round"
+                                                                            strokeLinejoin="round"
+                                                                            strokeWidth="1.5"
+                                                                        >
+                                                                            <path d="M6 10h8M10 6l4 4-4 4" />
+                                                                        </svg>
+                                                                    </a>
+                                                                </div>
+                                                                <div className="text">
+                                                                    <div className="info">
+                                                                        <Link href={`/works/${work.link}`} className="title">
+                                                                            {work.judul}
+                                                                        </Link>
+                                                                        <p className="subtitle">{work.type}</p>
+                                                                    </div>
+                                                                    <div className="visite-btn">
+                                                                        <a
+                                                                            href={work.link}
+                                                                            target="_blank"
+                                                                            rel="noopener noreferrer"
+                                                                        >
+                                                                            Visit Site
+                                                                            <svg
+                                                                                className="arrow-up"
+                                                                                width="14"
+                                                                                height="15"
+                                                                                viewBox="0 0 14 15"
+                                                                                fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                            >
+                                                                                <path
+                                                                                    d="M9.91634 4.5835L4.08301 10.4168"
+                                                                                    strokeLinecap="round"
+                                                                                    strokeLinejoin="round"
+                                                                                ></path>
+                                                                                <path
+                                                                                    d="M4.66699 4.5835H9.91699V9.8335"
+                                                                                    strokeLinecap="round"
+                                                                                    strokeLinejoin="round"
+                                                                                ></path>
+                                                                            </svg>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </Slider>
+                                        ) : (
                                             <div className="portfolio-area mt-5">
                                                 <div className="row g-4 parent-container">
                                                     <div className="col-lg-12">
                                                         <div className="portfolio-item">
-                                                            <div
-                                                                className="image"
-                                                                style={{
-                                                                    padding:
-                                                                        '0px',
-                                                                }}
-                                                            >
+                                                            <div className="image" style={{ padding: 0 }}>
                                                                 <div className="text d-flex justify-content-center">
                                                                     <div className="info">
-                                                                        <p className="subtitle">
-                                                                            Sabar
-                                                                            ya
-                                                                            lagi
-                                                                            dibuat
-                                                                            🙏🏻😭
-                                                                        </p>
+                                                                        <p className="subtitle">Sabar ya lagi dibuat 🙏🏻😭</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -132,8 +263,9 @@ export default function About() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        )}
                                     </div>
+
                                     <div className="article-publications">
                                         <h2 className="main-common-title">
                                             Article and Publications
