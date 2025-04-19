@@ -19,13 +19,13 @@ export async function GET(req: Request) {
             const results = await new Promise<Blog[]>((resolve, reject) => {
                 DB.query('SELECT * FROM blogs', (error, results) => {
                     if (error) {
-                        console.error('Database Query Error:', error);
+                        console.error('Database Query Error:', error)
                         reject(error)
                     } else {
                         resolve(results as Blog[])
                     }
                 })
-            });
+            })
 
             // Check if the query returned any blogs
             if (results.length === 0) {
@@ -44,18 +44,21 @@ export async function GET(req: Request) {
                     created_at: blog.created_at,
                     time: blog.time,
                     tanggal: blog.tanggal,
-                    gambar: blog.gambar,
+                    gambar:
+                        'https://portofolio.rizkykmil.web.id/uploads/blogs_images/' +
+                        blog.gambar,
                     slug: blog.slug,
                 })),
                 { status: 200 }
-            );
+            )
         } catch (error) {
-            console.error('Error Fetching Blogs:', error);
+            console.error('Error Fetching Blogs:', error)
 
             return NextResponse.json(
                 {
                     message: 'Database error',
-                    error: error instanceof Error ? error.message : String(error),
+                    error:
+                        error instanceof Error ? error.message : String(error),
                 },
                 { status: 500 }
             )
