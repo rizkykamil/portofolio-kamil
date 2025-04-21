@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import ProfileCard from '../components/profileCard'
 import ScrollingInfo from '../components/scrollingInfo'
+import { TypeAnimation } from 'react-type-animation';
 
 // Define an interface for the work structure (same as API response)
 interface Work {
@@ -65,17 +66,21 @@ export default function Works() {
                                 <div className="portfolio-area">
                                     <div className="row g-4 parent-container">
                                         {loading ? (
-                                            <div className="col-lg-12">
-                                                <div className="portfolio-item">
-                                                    <div className="image" style={{ padding: '0px' }}>
-                                                        <div className="text d-flex justify-content-center">
-                                                            <div className="info">
-                                                                <p className="subtitle">Loading projects...</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div className="text-center">
+                                            <TypeAnimation
+                                                sequence={[
+                                                    'Loading Works ....',
+                                                    500, // jeda 1 detik
+                                                    '',   // hapus
+                                                    500,  // jeda 0.5 detik
+                                                ]}
+                                                wrapper="span"
+                                                speed={50}
+                                                repeat={Infinity}
+                                                cursor={true}
+                                                style={{ fontSize: '2em', display: 'inline-block' }}
+                                            />
+                                        </div>
                                         ) : works.length > 0 ? (
                                             works.map((work) => (
                                                 <div key={work.id} className="col-lg-12">
