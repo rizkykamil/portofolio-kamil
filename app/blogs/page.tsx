@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import ProfileCard from '../components/profileCard'
 import ScrollingInfo from '../components/scrollingInfo'
+import { TypeAnimation } from 'react-type-animation';
+
 
 interface Blog {
     id: number
@@ -65,53 +67,23 @@ export default function Blogs() {
                                         </p>
                                     </div>
                                 </div>
-                                {/* <div className="article-publications article-area">
-                                    <div className="article-publications-main">
-                                        <div className="row">
-                                            <div className="portfolio-area mt-5">
-                                                <div className="row g-4 parent-container">
-                                                    <div className="col-lg-12">
-                                                        <div className="portfolio-item">
-                                                            <div
-                                                                className="image"
-                                                                style={{
-                                                                    padding:
-                                                                        '0px',
-                                                                }}
-                                                            >
-                                                                <div className="text d-flex justify-content-center">
-                                                                    <div className="info">
-                                                                        <p className="subtitle">
-                                                                            Sabar
-                                                                            ya
-                                                                            lagi
-                                                                            dibuat
-                                                                            🙏🏻😭
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
-
                                 <div className="article-publications article-area">
                                     <div className="row g-4 parent-container">
                                         {loading ? (
-                                            <div className="col-lg-12">
-                                                <div className="portfolio-item">
-                                                    <div className="image" style={{ padding: '0px' }}>
-                                                        <div className="text d-flex justify-content-center">
-                                                            <div className="info">
-                                                                <p className="subtitle">Loading projects...</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div className="text-center">
+                                                <TypeAnimation
+                                                    sequence={[
+                                                        'Loading Project ....',
+                                                        500, // jeda 1 detik
+                                                        '',   // hapus
+                                                        500,  // jeda 0.5 detik
+                                                    ]}
+                                                    wrapper="span"
+                                                    speed={50}
+                                                    repeat={Infinity}
+                                                    cursor={true}
+                                                    style={{ fontSize: '2em', display: 'inline-block' }}
+                                                />
                                             </div>
                                         ) : blogs.length > 0 ? (
                                             blogs.map((blog) => (
