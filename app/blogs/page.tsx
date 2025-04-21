@@ -11,6 +11,7 @@ interface Blog {
     type: string
     isi: string
     time: number
+    slug: string
     tanggal: string
     // link: string
 }
@@ -126,7 +127,9 @@ export default function Blogs() {
                                                             <Link href="" className="tags">{blog.type}</Link>
                                                         </div>
                                                         <div className="text">
-                                                            <a href="{{ route('blog.detail', $blog->slug) }}" className="title">{blog.judul}</a>
+                                                            <Link href={`/blogs/${blog.slug}`} className="tags">
+                                                                {blog.type}
+                                                            </Link>
                                                             <ul className="list-unstyled">
                                                                 <li>{blog.time} min read</li>
                                                                 <li>{blog.tanggal}</li>

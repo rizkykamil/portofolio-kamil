@@ -9,7 +9,7 @@
         "lint": "next lint",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "rebuild" : "rm -rf node_modules && rm package-lock.json && npm install && rm -rf .next && npm run build"
+        "rebuild": "rm -rf node_modules && rm package-lock.json && npm install && rm -rf .next && npm run build"
     },
     "dependencies": {
         "@next/font": "^14.2.15",
@@ -25,6 +25,7 @@
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "react-slick": "^0.30.3",
+        "react-type-animation": "^3.2.0",
         "slick-carousel": "^1.8.1",
         "sweetalert2": "^11.17.2"
     },
