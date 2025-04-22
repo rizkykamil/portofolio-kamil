@@ -9,6 +9,7 @@ interface Work {
     type: string
     client: string
     link: string
+    slug : string
 }
 
 // Export GET as a named export
@@ -40,6 +41,7 @@ export async function GET(req: NextRequest) {
                     type: work.type,
                     client: work.client,
                     link: work.link,
+                    slug : work.slug
                 })),
                 { status: 200 }
             );

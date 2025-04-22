@@ -13,6 +13,7 @@ interface Work {
     type: string
     client: string
     link: string
+    slug : string
 }
 
 export default function Works() {
@@ -67,20 +68,20 @@ export default function Works() {
                                     <div className="row g-4 parent-container">
                                         {loading ? (
                                             <div className="text-center">
-                                            <TypeAnimation
-                                                sequence={[
-                                                    'Loading Works ....',
-                                                    500, // jeda 1 detik
-                                                    '',   // hapus
-                                                    500,  // jeda 0.5 detik
-                                                ]}
-                                                wrapper="span"
-                                                speed={50}
-                                                repeat={Infinity}
-                                                cursor={true}
-                                                style={{ fontSize: '2em', display: 'inline-block' }}
-                                            />
-                                        </div>
+                                                <TypeAnimation
+                                                    sequence={[
+                                                        'Loading Works ....',
+                                                        500, // jeda 1 detik
+                                                        '',   // hapus
+                                                        500,  // jeda 0.5 detik
+                                                    ]}
+                                                    wrapper="span"
+                                                    speed={50}
+                                                    repeat={Infinity}
+                                                    cursor={true}
+                                                    style={{ fontSize: '2em', display: 'inline-block' }}
+                                                />
+                                            </div>
                                         ) : works.length > 0 ? (
                                             works.map((work) => (
                                                 <div key={work.id} className="col-lg-12">
@@ -109,7 +110,7 @@ export default function Works() {
                                                         </div>
                                                         <div className="text">
                                                             <div className="info">
-                                                                <h3 className="title">{work.judul}</h3>
+                                                                <Link href={`/works/${work.slug}`}className="title">{work.judul}</Link>
                                                                 <p className="subtitle">{work.client}</p>
                                                             </div>
                                                             <div className="visite-btn">
