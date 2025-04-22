@@ -24,11 +24,15 @@ export default function FrequentlyAskedQuestions() {
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
+                                            width={16}
+                                            height={16}
                                         />
                                         <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
+                                            width={16}
+                                            height={16}
                                         />
                                     </span>
                                 </span>
@@ -68,11 +72,15 @@ export default function FrequentlyAskedQuestions() {
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
+                                            width={16}
+                                            height={16}
                                         />
                                         <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
+                                            width={16}
+                                            height={16}
                                         />
                                     </span>
                                 </span>
@@ -113,11 +121,15 @@ export default function FrequentlyAskedQuestions() {
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
+                                            width={16}
+                                            height={16}
                                         />
                                         <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
+                                            width={16}
+                                            height={16}
                                         />
                                     </span>
                                 </span>
@@ -158,11 +170,15 @@ export default function FrequentlyAskedQuestions() {
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
+                                            width={16}
+                                            height={16}
                                         />
                                         <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
+                                            width={16}
+                                            height={16}
                                         />
                                     </span>
                                 </span>
@@ -201,12 +217,16 @@ export default function FrequentlyAskedQuestions() {
                                         <Image
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
+                                            width={16}
+                                            height={16}
                                             alt="plus"
                                         />
                                         <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
+                                            width={16}
+                                            height={16}
                                         />
                                     </span>
                                 </span>
