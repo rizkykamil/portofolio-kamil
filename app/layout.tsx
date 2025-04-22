@@ -32,6 +32,10 @@ export default function RootLayout({
                     type="image/x-icon"
                     href="/assets/img/favicon.svg"
                 />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&display=swap"
+                    rel="stylesheet"
+                />
             </head>
             <body>
                 <Navbar />
