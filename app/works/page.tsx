@@ -14,7 +14,7 @@ interface Work {
     type: string
     client: string
     link: string
-    slug : string
+    slug: string
 }
 
 export default function Works() {
@@ -111,7 +111,7 @@ export default function Works() {
                                                         </div>
                                                         <div className="text">
                                                             <div className="info">
-                                                                <Link href={`/works/${work.slug}`}className="title">{work.judul}</Link>
+                                                                <Link href={`/works/${work.slug}`} className="title">{work.judul}</Link>
                                                                 <p className="subtitle">{work.client}</p>
                                                             </div>
                                                             <div className="visite-btn">

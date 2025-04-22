@@ -9,6 +9,10 @@ export default function ProfileCard() {
                         <div className="image text-center">
                             <Image
                                 src="/assets/img/images/KamilProfile.png"
+                                width={180 }
+                                height={250 }
+                                loading="lazy"
+                                className="img-fluid"
                                 alt="profile"
                             />
                         </div>

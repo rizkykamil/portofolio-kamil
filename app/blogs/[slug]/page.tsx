@@ -77,13 +77,13 @@ export default function ContentBlog() {
                                         <>
                                             <div className="main-image">
                                                 <Image
-                                                                        src={blog.gambar}
-                                                                        alt={blog.judul}
-                                                                        width={1200}
-                                                                        height={800}
-                                                                        loading="lazy"
-                                                                        className="img-fluid"
-                                                                    ></Image>
+                                                    src={blog.gambar}
+                                                    alt={blog.judul}
+                                                    width={1200}
+                                                    height={800}
+                                                    loading="lazy"
+                                                    className="img-fluid"
+                                                ></Image>
                                             </div>
                                             <ul className="list-unstyled article-tags">
                                                 <li>{blog.time}</li>
