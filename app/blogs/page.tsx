@@ -4,6 +4,7 @@ import Link from 'next/link'
 import ProfileCard from '../components/profileCard'
 import ScrollingInfo from '../components/scrollingInfo'
 import { TypeAnimation } from 'react-type-animation';
+import Image from 'next/image';
 
 
 interface Blog {
@@ -90,10 +91,12 @@ export default function Blogs() {
                                                 <div key={blog.id} className="col-xl-6 col-lg-4 col-md-6">
                                                     <div className="article-publications-item">
                                                         <div className="image">
-                                                            <img
+                                                            <Image
                                                                 src={blog.gambar}
                                                                 alt={blog.judul}
-                                                                className="img-fluid w-100"
+                                                                layout="responsive"
+                                                                width={1200}  
+                                                                height={800}  
                                                                 loading="lazy"
                                                             />
                                                             <Link href="" className="tags">{blog.type}</Link>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import ProfileCard from '../components/profileCard'
 import ScrollingInfo from '../components/scrollingInfo'
 import { TypeAnimation } from 'react-type-animation';
+import Image from 'next/image'
 
 // Define an interface for the work structure (same as API response)
 interface Work {
@@ -87,7 +88,7 @@ export default function Works() {
                                                 <div key={work.id} className="col-lg-12">
                                                     <div className="portfolio-item">
                                                         <div className="image">
-                                                            <img
+                                                            <Image
                                                                 src={work.gambar}
                                                                 alt={work.judul}
                                                                 className="img-fluid w-100"

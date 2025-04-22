@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function FrequentlyAskedQuestions() {
     return (
         <div className="frequently-asked-questions">
@@ -18,12 +20,12 @@ export default function FrequentlyAskedQuestions() {
                                 Kamil?
                                 <span className="ms-auto">
                                     <span className="icon ms-4">
-                                        <img
+                                        <Image
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
                                         />
-                                        <img
+                                        <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
@@ -62,12 +64,12 @@ export default function FrequentlyAskedQuestions() {
                                 diskusi proyek?
                                 <span className="ms-auto">
                                     <span className="icon ms-4">
-                                        <img
+                                        <Image
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
                                         />
-                                        <img
+                                        <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
@@ -107,12 +109,12 @@ export default function FrequentlyAskedQuestions() {
                                 Apa pengalaman utama yang dimiliki Rizky Kamil?
                                 <span className="ms-auto">
                                     <span className="icon ms-4">
-                                        <img
+                                        <Image
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
                                         />
-                                        <img
+                                        <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
@@ -152,12 +154,12 @@ export default function FrequentlyAskedQuestions() {
                                 proyek desain dan pengembangan?
                                 <span className="ms-auto">
                                     <span className="icon ms-4">
-                                        <img
+                                        <Image
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
                                         />
-                                        <img
+                                        <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"
@@ -196,12 +198,12 @@ export default function FrequentlyAskedQuestions() {
                                 telah dikerjakan oleh Rizky Kamil?
                                 <span className="ms-auto">
                                     <span className="icon ms-4">
-                                        <img
+                                        <Image
                                             className="icon-plus"
                                             src="/assets/img/icons/plus.svg"
                                             alt="plus"
                                         />
-                                        <img
+                                        <Image
                                             className="icon-minus d-none"
                                             src="/assets/img/icons/minus.svg"
                                             alt="minus"

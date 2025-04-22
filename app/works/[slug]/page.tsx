@@ -5,6 +5,7 @@ import ProfileCard from '../../components/profileCard'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation';
+import Image from 'next/image'
 
 
 interface Work {
@@ -79,7 +80,7 @@ export default function ContentWork() {
                                     ) : (
                                         <>
                                             <div className="main-image">
-                                                <img
+                                                <Image
                                                     src={work.gambar || 'default_image.jpg'}
                                                     alt={work.judul}
                                                     className="img-fluid w-100"

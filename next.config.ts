@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
             'www.inti.co.id',
             'upload.wikimedia.org',
             'github.githubassets.com',
+            'portofolio.rizkykmil.web.id'
         ],
     },
 }

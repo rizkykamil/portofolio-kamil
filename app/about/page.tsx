@@ -180,12 +180,14 @@ export default function About() {
                                                         <div className="col-lg-12">
                                                             <div className="portfolio-item me-3">
                                                                 <div className="image">
-                                                                    <img
+                                                                    <Image
                                                                         src={work.gambar}
                                                                         alt={work.judul}
-                                                                        className="img-fluid w-100"
+                                                                        width={1200}
+                                                                        height={800}
                                                                         loading="lazy"
-                                                                    />
+                                                                        className="img-fluid"
+                                                                    ></Image>
                                                                     <a
                                                                         href={work.link}
                                                                         className="full-image-preview parent-container"

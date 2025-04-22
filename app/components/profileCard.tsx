@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function ProfileCard() {
     return (
         <>
@@ -5,7 +7,7 @@ export default function ProfileCard() {
                 <div className="card profile-card">
                     <div className="card-body">
                         <div className="image text-center">
-                            <img
+                            <Image
                                 src="/assets/img/images/KamilProfile.png"
                                 alt="profile"
                             />

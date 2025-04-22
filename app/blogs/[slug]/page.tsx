@@ -4,6 +4,7 @@ import ProfileCard from '../../components/profileCard'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation';
+import Image from 'next/image'
 
 
 interface Blog {
@@ -75,12 +76,14 @@ export default function ContentBlog() {
                                     ) : (
                                         <>
                                             <div className="main-image">
-                                                <img
-                                                    src={blog.gambar || 'default_image.jpg'}
-                                                    alt={blog.judul}
-                                                    className="img-fluid w-100"
-                                                    loading="lazy"
-                                                />
+                                                <Image
+                                                                        src={blog.gambar}
+                                                                        alt={blog.judul}
+                                                                        width={1200}
+                                                                        height={800}
+                                                                        loading="lazy"
+                                                                        className="img-fluid"
+                                                                    ></Image>
                                             </div>
                                             <ul className="list-unstyled article-tags">
                                                 <li>{blog.time}</li>
