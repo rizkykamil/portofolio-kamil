@@ -96,6 +96,7 @@ export default function ProfileCard() {
                                         <a
                                             href="https://www.instagram.com/kamilrzky_/"
                                             target="_blank"
+                                            aria-label="Click here to go to my Instagram"
                                         >
                                             <i className="fab fa-instagram"></i>
                                         </a>
@@ -104,6 +105,7 @@ export default function ProfileCard() {
                                         <a
                                             href="https://wa.me/+6285172014124"
                                             target="_blank"
+                                            aria-label='Click here to go to my Whatsapp'
                                         >
                                             <i className="fab fa-whatsapp"></i>
                                         </a>
@@ -112,6 +114,7 @@ export default function ProfileCard() {
                                         <a
                                             href="https://github.com/rizkykamil"
                                             target="_blank"
+                                            aria-label='Click here to go to my Github'
                                         >
                                             <i className="fab fa-github"></i>
                                         </a>
@@ -120,6 +123,7 @@ export default function ProfileCard() {
                                         <a
                                             href="https://www.linkedin.com/in/rizky-kamil-rabbani/"
                                             target="_blank"
+                                            aria-label='Click here to go to my Linkedin'
                                         >
                                             <i className="fab fa-linkedin"></i>
                                         </a>
