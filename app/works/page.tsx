@@ -92,6 +92,8 @@ export default function Works() {
                                                                 src={work.gambar}
                                                                 alt={work.judul}
                                                                 className="img-fluid w-100"
+                                                                width={1200}
+                                                                height={800}
                                                                 loading="lazy"
                                                             />
                                                             <Link href={work.link} className="full-image-preview parent-container">

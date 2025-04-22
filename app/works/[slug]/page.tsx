@@ -84,6 +84,8 @@ export default function ContentWork() {
                                                     src={work.gambar || 'default_image.jpg'}
                                                     alt={work.judul}
                                                     className="img-fluid w-100"
+                                                    width={1200}
+                                                    height={800}
                                                     loading="lazy"
                                                 />
                                             </div>
