@@ -7,6 +7,7 @@ import '/public/assets/css/bootstrap.min.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
 export const metadata: Metadata = {
     title: 'Milfolio - Personal Portfolio Kamil',
     description: 'MilFolio - Personal Portfolio Kamil',
@@ -19,6 +20,23 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <meta charSet="UTF-8" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <link
+                    rel="shortcut icon"
+                    type="image/x-icon"
+                    href="/assets/img/favicon.svg"
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&display=swap"
+                    rel="stylesheet"
+                />
+            </head>
             <body>
                 <Navbar />
                 {children}
