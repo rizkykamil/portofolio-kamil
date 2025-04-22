@@ -19,9 +19,23 @@ interface Work {
     type: string
     client: string
     link: string
+    slug : string
+}
+interface Blog {
+    id: number
+    judul: string
+    gambar: string
+    type: string
+    isi: string
+    time: number
+    slug: string
+    tanggal: string
+    link: string
 }
 export default function About() {
     const [works, setWorks] = useState<Work[]>([])
+    const [blogs, setBlog] = useState<Blog[]>([])
+
     const [loading, setLoading] = useState(true)
 
     // Fetch works data when the component is mounted
@@ -43,6 +57,27 @@ export default function About() {
         }
 
         fetchWorks()
+    }, [])
+
+    // Fetch blogs data when the component is mounted
+    useEffect(() => {
+        async function fetchBlog() {
+            try {
+                const response = await fetch('/api/blogs')
+                const data = await response.json()
+
+                // If blogs are found, update the state
+                if (response.ok && data.length > 0) {
+                    setBlog(data)
+                }
+            } catch (error) {
+                console.error('Error fetching blogs:', error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchBlog()
     }, [])
 
     const settings = {
@@ -210,7 +245,7 @@ export default function About() {
                                                                 </div>
                                                                 <div className="text">
                                                                     <div className="info">
-                                                                        <Link href={`/works/${work.link}`} className="title">
+                                                                        <Link href={`/works/${work.slug}`} className="title">
                                                                             {work.judul}
                                                                         </Link>
                                                                         <p className="subtitle">{work.type}</p>
@@ -272,29 +307,103 @@ export default function About() {
                                         <h2 className="main-common-title">
                                             Article and Publications
                                         </h2>
-                                        <div className="article-publications-main">
-                                            <div className="row article-publications-slider">
-                                                <div className="portfolio-area mt-5">
-                                                    <div className="row g-4 parent-container">
+                                        {loading ? (
+                                            <div className="portfolio-area mt-5">
+                                                <div className="row g-4 parent-container">
+                                                    <div className="col-lg-12">
+                                                        <div className="portfolio-item me-3 loading">
+                                                            <div className="image" style={{ minHeight: 200 }}>
+                                                                <span className="text-muted">Loading projects...</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ) : blogs.length > 0 ? (
+                                            <Slider {...settings}>
+                                                {blogs.map((blog) => (
+                                                    <div key={blog.id}>
                                                         <div className="col-lg-12">
-                                                            <div className="portfolio-item">
-                                                                <div
-                                                                    className="image"
-                                                                    style={{
-                                                                        padding:
-                                                                            '0px',
-                                                                    }}
-                                                                >
-                                                                    <div className="text d-flex justify-content-center">
-                                                                        <div className="info">
-                                                                            <p className="subtitle">
-                                                                                Sabar
-                                                                                ya
-                                                                                lagi
-                                                                                dibuat
-                                                                                🙏🏻😭
-                                                                            </p>
-                                                                        </div>
+                                                            <div className="portfolio-item me-3">
+                                                                <div className="image">
+                                                                    <Image
+                                                                        src={blog.gambar}
+                                                                        alt={blog.judul}
+                                                                        width={1200}
+                                                                        height={800}
+                                                                        loading="lazy"
+                                                                        className="img-fluid"
+                                                                    ></Image>
+                                                                    <a
+                                                                        href={blog.link}
+                                                                        className="full-image-preview parent-container"
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                    >
+                                                                        <svg
+                                                                            className="icon"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 20 20"
+                                                                            fill="none"
+                                                                            stroke="currentColor"
+                                                                            strokeLinecap="round"
+                                                                            strokeLinejoin="round"
+                                                                            strokeWidth="1.5"
+                                                                        >
+                                                                            <path d="M6 10h8M10 6l4 4-4 4" />
+                                                                        </svg>
+                                                                    </a>
+                                                                </div>
+                                                                <div className="text">
+                                                                    <div className="info">
+                                                                        <Link href={`/blog/${blog.slug}`} className="title">
+                                                                            {blog.judul}
+                                                                        </Link>
+                                                                        <p className="subtitle">{blog.type}</p>
+                                                                    </div>
+                                                                    <div className="visite-btn">
+                                                                        <a
+                                                                            href={blog.link}
+                                                                            target="_blank"
+                                                                            rel="noopener noreferrer"
+                                                                        >
+                                                                            Visit Site
+                                                                            <svg
+                                                                                className="arrow-up"
+                                                                                width="14"
+                                                                                height="15"
+                                                                                viewBox="0 0 14 15"
+                                                                                fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                            >
+                                                                                <path
+                                                                                    d="M9.91634 4.5835L4.08301 10.4168"
+                                                                                    strokeLinecap="round"
+                                                                                    strokeLinejoin="round"
+                                                                                ></path>
+                                                                                <path
+                                                                                    d="M4.66699 4.5835H9.91699V9.8335"
+                                                                                    strokeLinecap="round"
+                                                                                    strokeLinejoin="round"
+                                                                                ></path>
+                                                                            </svg>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </Slider>
+                                        ) : (
+                                            <div className="portfolio-area mt-5">
+                                                <div className="row g-4 parent-container">
+                                                    <div className="col-lg-12">
+                                                        <div className="portfolio-item">
+                                                            <div className="image" style={{ padding: 0 }}>
+                                                                <div className="text d-flex justify-content-center">
+                                                                    <div className="info">
+                                                                        <p className="subtitle">Sabar ya lagi dibuat 🙏🏻😭</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -302,7 +411,7 @@ export default function About() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        )}
                                     </div>
                                     <ScrollingInfo />
                                 </div>
